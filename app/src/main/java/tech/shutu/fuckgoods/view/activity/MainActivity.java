@@ -1,4 +1,4 @@
-package tech.shutu.fuckgoods;
+package tech.shutu.fuckgoods.view.activity;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -14,6 +14,8 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.github.florent37.materialviewpager.MaterialViewPager;
+
+import tech.shutu.fuckgoods.R;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
