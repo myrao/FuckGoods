@@ -13,19 +13,18 @@ import android.view.ViewGroup;
 
 import com.github.florent37.materialviewpager.header.MaterialViewPagerHeaderDecorator;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import butterknife.BindColor;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import tech.shutu.fuckgoods.R;
-import tech.shutu.fuckgoods.adapter.TestRecyclerViewAdapter;
+import tech.shutu.fuckgoods.adapter.AndroidRVAdapter;
+import tech.shutu.fuckgoods.iview.AndroidRVView;
+import tech.shutu.fuckgoods.presenter.AndroidRVPresenter;
 
 /**
  * Created by florentchampigny on 24/04/15.
  */
-public class RecyclerViewFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
+public class RecyclerViewFragment extends Fragment implements AndroidRVView, SwipeRefreshLayout.OnRefreshListener {
 
     public static final boolean GRID_LAYOUT = false;
 
@@ -36,11 +35,22 @@ public class RecyclerViewFragment extends Fragment implements SwipeRefreshLayout
 
     private SwipeRefreshLayout mSwipeRefreshLayout;
 
-    private RecyclerView.Adapter mAdapter;
-    private List<Object> mContentItems = new ArrayList<>();
+    private AndroidRVAdapter mAdapter;
+//    private List<Object> mContentItems = new ArrayList<>();
 
     public static RecyclerViewFragment newInstance() {
         return new RecyclerViewFragment();
+    }
+
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        createPresenter();
+    }
+
+    public AndroidRVPresenter createPresenter() {
+        return new AndroidRVPresenter(this);
     }
 
     @Override
@@ -64,21 +74,22 @@ public class RecyclerViewFragment extends Fragment implements SwipeRefreshLayout
         mRecyclerView.setHasFixedSize(true);
         //Use this now
         mRecyclerView.addItemDecoration(new MaterialViewPagerHeaderDecorator());
-        mAdapter = new TestRecyclerViewAdapter(mContentItems);
+        mAdapter = new AndroidRVAdapter(getContext());
 
         //mAdapter = new RecyclerViewMaterialAdapter();
         mRecyclerView.setAdapter(mAdapter);
 
-        {
-            for (int i = 0; i < 20; ++i) {
-                mContentItems.add(new Object());
-            }
-            mAdapter.notifyDataSetChanged();
-        }
     }
 
     @Override
     public void onRefresh() {
+
+
+    }
+
+
+    @Override
+    public void setDataToUI() {
 
     }
 }
