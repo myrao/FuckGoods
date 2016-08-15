@@ -8,7 +8,9 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.squareup.okhttp.FormEncodingBuilder;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -71,5 +73,41 @@ public class HttpUtils {
         // queueTag 用于调用cancelAll(queueTag)取消加入队列的请求
         RequestManager.getRequestQueue().add(requestPost);
     }
+
+    public static String getDataInGet(String urlStr) {
+        if (!TextUtils.isEmpty(urlStr)) {
+            try {
+                com.squareup.okhttp.Request request = new com.squareup.okhttp.Request.Builder()
+                        .url(urlStr).build();
+                com.squareup.okhttp.Response response = OKHttpClientManager.getInstance().getOkHttpClient().newCall(request).execute();
+                if (response.isSuccessful()) {
+                    return response.body().string();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return null;
+    }
+
+    public static String getDataInPost(String url, Map<String, String> parameters) {
+        if (TextUtils.isEmpty(url)) return null;
+        FormEncodingBuilder builder = new FormEncodingBuilder();
+        if (parameters != null)
+            for (Map.Entry<String, String> entry : parameters.entrySet()) {
+                builder.add(entry.getKey(), entry.getValue());
+            }
+        com.squareup.okhttp.Request request = new com.squareup.okhttp.Request.Builder().url(url)
+                .post(builder.build()).build();
+        try {
+            com.squareup.okhttp.Response response = OKHttpClientManager.getInstance().getOkHttpClient().newCall(request).execute();
+            if (response.isSuccessful())
+                return response.body().string();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 
 }

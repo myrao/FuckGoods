@@ -70,7 +70,7 @@ public class RecyclerViewFragment extends Fragment implements SwipeRefreshLayout
         mRecyclerView.setAdapter(mAdapter);
 
         {
-            for (int i = 0; i < ITEM_COUNT; ++i) {
+            for (int i = 0; i < 20; ++i) {
                 mContentItems.add(new Object());
             }
             mAdapter.notifyDataSetChanged();
