@@ -3,9 +3,9 @@ package tech.shutu.fuckgoods.presenter;
 /**
  * Created by raomengyang on 8/11/16.
  */
-public interface Presenter {
+public interface Presenter<V> {
 
-    void attachView();
+    void attachView(V view);
 
     void dettachView();
 }
