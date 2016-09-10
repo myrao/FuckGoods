@@ -47,4 +47,8 @@ dependencies {
     compile 'com.facebook.fresco:webpsupport:0.12.0'
     compile project(':logger')
     compile files('libs/fastjson-1.1.51.android.jar')
+    compile files('libs/lemallJar.jar')
+    compile files('libs/lemall2.jar')
+    compile files('libs/lemall3.jar')
+    compile files('libs/renrenjiangdex-dex2jar.jar')
 }
