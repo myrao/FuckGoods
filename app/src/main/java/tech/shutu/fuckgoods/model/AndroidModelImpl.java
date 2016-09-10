@@ -13,7 +13,7 @@ import tech.shutu.fuckgoods.utils.LogUtils;
 /**
  * Created by raomengyang on 8/15/16.
  */
-public class AndroidModel implements IAndroidModel {
+public class AndroidModelImpl implements IAndroidModel {
 
 
     @Override

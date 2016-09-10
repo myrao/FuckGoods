@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 import tech.shutu.fuckgoods.view.fragment.RecyclerViewFragment;
 import tech.shutu.fuckgoods.view.fragment.ScrollFragment;
 import tech.shutu.fuckgoods.view.fragment.WebViewFragment;
+import tech.shutu.fuckgoods.view.fragment.WelfareRVFragment;
 
 /**
  * Created by raomengyang on 8/12/16.
@@ -34,10 +35,9 @@ public class RVFragmentPagerAdapter extends FragmentStatePagerAdapter {
             case 2:
                 return WebViewFragment.newInstance();
             default:
-                return RecyclerViewFragment.newInstance();
+                return WelfareRVFragment.newInstance();
         }
     }
-
 
 
     @Override

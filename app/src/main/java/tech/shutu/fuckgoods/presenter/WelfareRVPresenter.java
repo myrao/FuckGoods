@@ -5,30 +5,30 @@ import java.util.List;
 import tech.shutu.fuckgoods.bean.AndroidBean;
 import tech.shutu.fuckgoods.iview.AndroidRVView;
 import tech.shutu.fuckgoods.listener.OnAndroidRequestListener;
-import tech.shutu.fuckgoods.model.AndroidModelImpl;
 import tech.shutu.fuckgoods.model.IAndroidModel;
+import tech.shutu.fuckgoods.model.WelfareModelImpl;
 
 /**
  * Created by raomengyang on 8/16/16.
  */
-public class AndroidRVPresenter extends BasePresenter<AndroidRVView> implements OnAndroidRequestListener {
+public class WelfareRVPresenter extends BasePresenter<AndroidRVView> implements OnAndroidRequestListener {
 
     private AndroidRVView androidRVView;
-    private IAndroidModel androidModel;
+    private IAndroidModel welfareModel;
 
-    public AndroidRVPresenter(AndroidRVView rvView) {
+    public WelfareRVPresenter(AndroidRVView rvView) {
         attachView(rvView);
         this.androidRVView = getView();
-        androidModel = new AndroidModelImpl();
+        welfareModel = new WelfareModelImpl();
     }
 
     public void refreshPage() {
         androidRVView.onLoading();
-        androidModel.requestPage(1, this);
+        welfareModel.requestPage(1, this);
     }
 
     public void loadMorePage(int pageCount) {
-        androidModel.requestPage(pageCount, this);
+        welfareModel.requestPage(pageCount, this);
     }
 
 

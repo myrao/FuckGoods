@@ -39,7 +39,7 @@ public class RequestManager {
         if (mRequestQueue != null) {
             return mRequestQueue;
         } else {
-            throw new IllegalStateException("renrenjiang Error: RequestQueue Not initialized");
+            throw new IllegalStateException("Error: RequestQueue Not initialized");
         }
     }
 }

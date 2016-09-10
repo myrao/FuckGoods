@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cv_android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:layout_marginBottom="@dimen/cardMarginVertical"
+        android:layout_marginLeft="@dimen/cardMarginHorizontal"
+        android:layout_marginRight="@dimen/cardMarginHorizontal"
+        android:layout_marginTop="@dimen/cardMarginVertical"
+        android:background="@color/material_light_white"
+        app:cardCornerRadius="2dp"
+        app:cardElevation="2dp"
+        app:cardPreventCornerOverlap="false"
+        app:contentPadding="0dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/material_light_white"
+            android:orientation="vertical"
+            android:padding="5dp">
+
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/iv_item"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                fresco:failureImage="@drawable/ic_gf_default_photo"
+                fresco:failureImageScaleType="centerCrop"
+                fresco:placeholderImage="@drawable/ic_gf_default_photo"
+                fresco:placeholderImageScaleType="fitCenter"
+                fresco:viewAspectRatio="0.56" />
+
+            <TextView
+                android:id="@+id/tv_publish_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:text="标题"
+                android:textColor="@color/material_light_black"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/tv_publish_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/tv_publish_title"
+                android:maxLength="16"
+                android:text="时间"
+                android:textColor="@color/material_light_black"
+                android:textSize="11sp" />
+
+            <TextView
+                android:id="@+id/tv_source"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginRight="10dp"
+                android:layout_toLeftOf="@+id/tv_type"
+                android:text="类型"
+                android:textColor="@color/material_light_black"
+                android:textSize="11sp" />
+
+            <TextView
+                android:id="@+id/tv_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginRight="10dp"
+                android:layout_toLeftOf="@+id/tv_author"
+                android:text="类型"
+                android:textColor="@color/material_light_black"
+                android:textSize="11sp"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/tv_author"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:text="作者"
+                android:textColor="@color/material_light_black"
+                android:textSize="11sp" />
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

@@ -19,15 +19,17 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import tech.shutu.fuckgoods.R;
 import tech.shutu.fuckgoods.adapter.AndroidRVAdapter;
+import tech.shutu.fuckgoods.adapter.WelfareRVAdapter;
 import tech.shutu.fuckgoods.bean.AndroidBean;
 import tech.shutu.fuckgoods.iview.AndroidRVView;
 import tech.shutu.fuckgoods.presenter.AndroidRVPresenter;
+import tech.shutu.fuckgoods.presenter.WelfareRVPresenter;
 import tech.shutu.fuckgoods.utils.LogUtils;
 
 /**
  * Created by florentchampigny on 24/04/15.
  */
-public class AndroidRVFragment extends BaseMvpFragment<AndroidRVPresenter> implements AndroidRVView, SwipeRefreshLayout.OnRefreshListener {
+public class WelfareRVFragment extends BaseMvpFragment<WelfareRVPresenter> implements AndroidRVView, SwipeRefreshLayout.OnRefreshListener {
 
     public static final boolean GRID_LAYOUT = false;
 
@@ -38,14 +40,14 @@ public class AndroidRVFragment extends BaseMvpFragment<AndroidRVPresenter> imple
     @BindView(R.id.srfl_android)
     SwipeRefreshLayout srflAndroid;
 
-    private AndroidRVAdapter mAdapter;
+    private WelfareRVAdapter mAdapter;
 
-    public static AndroidRVFragment newInstance() {
-        return new AndroidRVFragment();
+    public static WelfareRVFragment newInstance() {
+        return new WelfareRVFragment();
     }
 
-    public AndroidRVPresenter createPresenter() {
-        return new AndroidRVPresenter(this);
+    public WelfareRVPresenter createPresenter() {
+        return new WelfareRVPresenter(this);
     }
 
     @Override
@@ -75,7 +77,7 @@ public class AndroidRVFragment extends BaseMvpFragment<AndroidRVPresenter> imple
         rvAndroidList.setHasFixedSize(true);
         //Use this now
         rvAndroidList.addItemDecoration(new MaterialViewPagerHeaderDecorator());
-        mAdapter = new AndroidRVAdapter(getActivity());
+        mAdapter = new WelfareRVAdapter(getActivity());
         rvAndroidList.setAdapter(mAdapter);
         srflAndroid.setOnRefreshListener(this);
     }

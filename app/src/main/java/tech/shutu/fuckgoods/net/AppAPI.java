@@ -13,12 +13,12 @@ public class AppAPI {
 
     public static final String SUFFIX_ANDROID = "/api/data/Android";
     public static final String SUFFIX_IOS = "/api/data/iOS";
-    public static final String SUFFIX_WELWARE = "/api/data/Android";
+    public static final String SUFFIX_WELFARE = "/api/data/福利";
 
 
     public static final String API_ANDROID_URL = IP_PREFIX + SUFFIX_ANDROID;
     public static final String API_IOS_URL = IP_PREFIX + SUFFIX_IOS;
-    public static final String API_WELWARE_URL = IP_PREFIX + SUFFIX_WELWARE;
+    public static final String API_WELWARE_URL = IP_PREFIX + SUFFIX_WELFARE;
 
     public static String getApiAndroidUrl() {
         return API_ANDROID_URL;
