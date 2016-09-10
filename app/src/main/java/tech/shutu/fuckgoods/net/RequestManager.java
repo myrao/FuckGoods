@@ -33,7 +33,7 @@ public class RequestManager {
 
     /**
      * @return instance of the queue
-     * @throws IllegalStatException if init has not yet been called
+     * @throws IllegalStateException if init has not yet been called
      */
     public static RequestQueue getRequestQueue() {
         if (mRequestQueue != null) {

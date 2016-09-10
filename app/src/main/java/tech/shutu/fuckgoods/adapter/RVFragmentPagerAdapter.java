@@ -38,6 +38,8 @@ public class RVFragmentPagerAdapter extends FragmentStatePagerAdapter {
         }
     }
 
+
+
     @Override
     public int getCount() {
         return 4;

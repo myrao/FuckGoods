@@ -1,5 +1,9 @@
 package tech.shutu.fuckgoods.bean;
 
+import android.text.TextUtils;
+
+import com.alibaba.fastjson.JSON;
+
 import java.util.List;
 
 /**
@@ -126,5 +130,18 @@ public class AndroidBean {
         public void setWho(String who) {
             this.who = who;
         }
+    }
+
+
+    public static List<AndroidBean.ResultsBean> parseJsonFromString(String jsonStr) {
+        if (!TextUtils.isEmpty(jsonStr)) {
+            AndroidBean androidBean = JSON.parseObject(jsonStr, AndroidBean.class);
+            if (androidBean.isError()) {
+                return null;
+            }
+            List<AndroidBean.ResultsBean> list = androidBean.getResults();
+            return list;
+        } else return null;
+
     }
 }

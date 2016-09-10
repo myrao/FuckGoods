@@ -6,4 +6,6 @@ package tech.shutu.fuckgoods.utils;
 public class AppConstant {
 
 
+
+
 }

@@ -11,9 +11,9 @@ public class AppAPI {
 
     public static final String IP_PREFIX = "http://gank.io";
 
-    public static final String SUFFIX_ANDROID = "api/data/Android";
-    public static final String SUFFIX_IOS = "api/data/iOS";
-    public static final String SUFFIX_WELWARE = "api/data/Android";
+    public static final String SUFFIX_ANDROID = "/api/data/Android";
+    public static final String SUFFIX_IOS = "/api/data/iOS";
+    public static final String SUFFIX_WELWARE = "/api/data/Android";
 
 
     public static final String API_ANDROID_URL = IP_PREFIX + SUFFIX_ANDROID;

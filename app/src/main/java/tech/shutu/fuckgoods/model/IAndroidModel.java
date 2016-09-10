@@ -1,5 +1,9 @@
 package tech.shutu.fuckgoods.model;
 
+import java.util.List;
+
+import tech.shutu.fuckgoods.bean.AndroidBean;
+import tech.shutu.fuckgoods.listener.OnAndroidRequestListener;
 import tech.shutu.fuckgoods.listener.OnRequestCallbackListener;
 
 /**
@@ -7,5 +11,9 @@ import tech.shutu.fuckgoods.listener.OnRequestCallbackListener;
  */
 public interface IAndroidModel extends IModel {
 
-    void requestData(String url, OnRequestCallbackListener requestCallbackListener);
+    void requestData(OnRequestCallbackListener requestCallbackListener);
+
+    void requestPage(int pageCount, OnAndroidRequestListener requestCallbackListener);
+
+    void loadImage(OnRequestCallbackListener requestCallbackListener);
 }

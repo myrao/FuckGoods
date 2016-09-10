@@ -13,11 +13,12 @@ import com.github.florent37.materialviewpager.MaterialViewPagerHelper;
 import com.github.ksoichiro.android.observablescrollview.ObservableWebView;
 
 import tech.shutu.fuckgoods.R;
+import tech.shutu.fuckgoods.presenter.BasePresenter;
 
 /**
  * Created by florentchampigny on 24/04/15.
  */
-public class WebViewFragment extends Fragment {
+public class WebViewFragment extends BaseMvpFragment {
 
     private ObservableWebView mWebView;
 
@@ -55,5 +56,10 @@ public class WebViewFragment extends Fragment {
         mWebView.loadUrl("http://renrenjiang.cn");
 
         MaterialViewPagerHelper.registerWebView(getActivity(), mWebView, null);
+    }
+
+    @Override
+    protected BasePresenter createPresenter() {
+        return null;
     }
 }

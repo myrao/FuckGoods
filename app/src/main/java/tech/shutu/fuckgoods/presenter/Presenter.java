@@ -7,5 +7,5 @@ public interface Presenter<V> {
 
     void attachView(V view);
 
-    void dettachView();
+    void detachView();
 }

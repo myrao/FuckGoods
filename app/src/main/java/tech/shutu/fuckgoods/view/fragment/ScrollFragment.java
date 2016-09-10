@@ -11,15 +11,16 @@ import com.github.florent37.materialviewpager.MaterialViewPagerHelper;
 import com.github.ksoichiro.android.observablescrollview.ObservableScrollView;
 
 import tech.shutu.fuckgoods.R;
+import tech.shutu.fuckgoods.presenter.BasePresenter;
 
 /**
  * Created by florentchampigny on 24/04/15.
  */
-public class ScrollFragment extends Fragment {
+public class ScrollFragment extends BaseMvpFragment {
 
     private ObservableScrollView mScrollView;
 
-    public static ScrollFragment newInstance() {
+    public static Fragment newInstance() {
         return new ScrollFragment();
     }
 
@@ -34,5 +35,10 @@ public class ScrollFragment extends Fragment {
         mScrollView = (ObservableScrollView) view.findViewById(R.id.scrollView);
 
         MaterialViewPagerHelper.registerScrollView(getActivity(), mScrollView, null);
+    }
+
+    @Override
+    protected BasePresenter createPresenter() {
+        return null;
     }
 }
