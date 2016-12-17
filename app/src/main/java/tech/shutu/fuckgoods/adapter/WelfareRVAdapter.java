@@ -17,7 +17,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import tech.shutu.fuckgoods.R;
-import tech.shutu.fuckgoods.model.bean.AndroidBean;
+import tech.shutu.fuckgoods.model.bean.PeroBean;
 import tech.shutu.fuckgoods.view.activity.PicPreviewActivity;
 
 /**
@@ -26,13 +26,13 @@ import tech.shutu.fuckgoods.view.activity.PicPreviewActivity;
 public class WelfareRVAdapter extends RecyclerView.Adapter<WelfareRVAdapter.ViewHolder> {
 
     private Context mContext;
-    private List<AndroidBean.ResultsBean> androidBeanList;
+    private List<PeroBean.ResultBean> androidBeanList;
 
     public WelfareRVAdapter(Context context) {
         this.mContext = context;
     }
 
-    public void setDataToAdapter(List<AndroidBean.ResultsBean> list) {
+    public void setDataToAdapter(List<PeroBean.ResultBean> list) {
         if (list != null) {
             if (androidBeanList != null) {
                 androidBeanList.clear();
@@ -44,7 +44,7 @@ public class WelfareRVAdapter extends RecyclerView.Adapter<WelfareRVAdapter.View
         notifyDataSetChanged();
     }
 
-    public void addDataAndNotifyChanged(List<AndroidBean.ResultsBean> list) {
+    public void addDataAndNotifyChanged(List<PeroBean.ResultBean> list) {
         if (list != null) {
             androidBeanList.addAll(list);
         }
@@ -60,26 +60,35 @@ public class WelfareRVAdapter extends RecyclerView.Adapter<WelfareRVAdapter.View
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
-        final AndroidBean.ResultsBean bean = androidBeanList.get(position);
+    public void onBindViewHolder(ViewHolder holder, final int position) {
+        final PeroBean.ResultBean bean = androidBeanList.get(position);
         if (bean != null) {
-            holder.tvPublishTitle.setText(bean.getDesc());
-            String url = bean.getUrl();
+//            holder.tvPublishTitle.setText(bean.getDesc());
+            String url = null;
+            for (PeroBean.ResultBean.PicturesBean pictures : bean.getPictures()) {
+                if (pictures.isCanBrowse()) {
+                    url = pictures.getUrl();
+                }
+            }
+
             if (url != null) holder.ivItem.setImageURI(Uri.parse(url));
-            holder.tvPublishTime.setText(bean.getPublishedAt().replace("T", " "));
-            holder.tvSource.setText(bean.getSource());
-            holder.tvAuthor.setText(bean.getWho());
-            holder.tvType.setText(bean.getType());
+
+//            holder.tvPublishTime.setText(bean.getPublishedAt().replace("T", " "));
+//            holder.tvSource.setText(bean.getSource());
+//            holder.tvAuthor.setText(bean.getWho());
+//            holder.tvType.setText(bean.getType());
+            final String finalUrl = url;
+            holder.cvAndroid.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(mContext, PicPreviewActivity.class);
+                    intent.putExtra("pic_url", finalUrl);
+                    mContext.startActivity(intent);
+                }
+            });
         }
 
-        holder.cvAndroid.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(mContext, PicPreviewActivity.class);
-                intent.putExtra("pic_url", bean.getUrl());
-                mContext.startActivity(intent);
-            }
-        });
+
     }
 
 

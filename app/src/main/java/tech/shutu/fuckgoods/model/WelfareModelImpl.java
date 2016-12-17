@@ -2,7 +2,6 @@ package tech.shutu.fuckgoods.model;
 
 import java.util.List;
 
-import tech.shutu.fuckgoods.model.bean.AndroidBean;
 import tech.shutu.fuckgoods.interfaces.RequestCallbackalbe;
 import tech.shutu.fuckgoods.listener.OnAndroidRequestListener;
 import tech.shutu.fuckgoods.listener.OnRequestCallbackListener;
@@ -34,7 +33,7 @@ public class WelfareModelImpl implements IAndroidModel {
                         LogUtils.o(successCallback);
 
 //                        List<AndroidBean.ResultsBean> beanList = AndroidBean.parseJsonFromString(successCallback);
-                        List<PeroBean.ResultBean.PicturesBean> beanList = PeroBean.pa
+                        List<PeroBean.ResultBean> beanList = PeroBean.parseJsonFromString(successCallback);
                         if (beanList != null) {
                             requestListener.onPageRefreshSuccess(beanList);
                         } else {

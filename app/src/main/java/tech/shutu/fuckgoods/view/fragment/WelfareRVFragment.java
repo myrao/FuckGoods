@@ -14,28 +14,23 @@ import com.github.florent37.materialviewpager.header.MaterialViewPagerHeaderDeco
 
 import java.util.List;
 
-import butterknife.BindColor;
-import butterknife.BindView;
-import butterknife.ButterKnife;
 import tech.shutu.fuckgoods.R;
 import tech.shutu.fuckgoods.adapter.WelfareRVAdapter;
-import tech.shutu.fuckgoods.model.bean.AndroidBean;
-import tech.shutu.fuckgoods.iview.AndroidRVView;
+import tech.shutu.fuckgoods.iview.PeroGirlView;
+import tech.shutu.fuckgoods.model.bean.PeroBean;
 import tech.shutu.fuckgoods.presenter.WelfareRVPresenter;
 import tech.shutu.fuckgoods.utils.LogUtils;
 
 /**
  * Created by florentchampigny on 24/04/15.
  */
-public class WelfareRVFragment extends BaseMvpFragment<WelfareRVPresenter> implements AndroidRVView, SwipeRefreshLayout.OnRefreshListener {
+public class WelfareRVFragment extends BaseMvpFragment<WelfareRVPresenter> implements PeroGirlView, SwipeRefreshLayout.OnRefreshListener {
 
     public static final boolean GRID_LAYOUT = true;
 
-    @BindColor(R.color.swipe_refresh_color_1)
-    int refreshRed;
-    @BindView(R.id.rv_android_list)
+    //    @BindColor(R.color.swipe_refresh_color_1)
+//    int refreshRed;
     RecyclerView rvAndroidList;
-    @BindView(R.id.srfl_android)
     SwipeRefreshLayout srflAndroid;
 
     private WelfareRVAdapter mAdapter;
@@ -57,8 +52,10 @@ public class WelfareRVFragment extends BaseMvpFragment<WelfareRVPresenter> imple
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.content_main, container, false);
-        ButterKnife.bind(this, view);
-        srflAndroid.setColorSchemeColors(refreshRed);
+        rvAndroidList = (RecyclerView) view.findViewById(R.id.rv_android_list);
+        srflAndroid = (SwipeRefreshLayout) view.findViewById(R.id.srfl_android);
+//        ButterKnife.bind(this, view);
+//        srflAndroid.setColorSchemeColors(refreshRed);
         return view;
     }
 
@@ -87,18 +84,6 @@ public class WelfareRVFragment extends BaseMvpFragment<WelfareRVPresenter> imple
     }
 
     @Override
-    public void setDataToUI(List<AndroidBean.ResultsBean> androidBeanList) {
-        mAdapter.addDataAndNotifyChanged(androidBeanList);
-
-    }
-
-    @Override
-    public void setRefreshData(List<AndroidBean.ResultsBean> androidBeanList) {
-        mAdapter.setDataToAdapter(androidBeanList);
-
-    }
-
-    @Override
     public void onLoading() {
         srflAndroid.setRefreshing(true);
     }
@@ -112,5 +97,17 @@ public class WelfareRVFragment extends BaseMvpFragment<WelfareRVPresenter> imple
     protected void performStartTask() {
         super.performStartTask();
         onRefresh();
+    }
+
+    @Override
+    public void setDataToUI(List<PeroBean.ResultBean> beanList) {
+        mAdapter.addDataAndNotifyChanged(beanList);
+
+    }
+
+    @Override
+    public void setRefreshData(List<PeroBean.ResultBean> beanList) {
+        mAdapter.setDataToAdapter(beanList);
+
     }
 }

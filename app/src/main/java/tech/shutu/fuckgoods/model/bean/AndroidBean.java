@@ -142,6 +142,5 @@ public class AndroidBean {
             List<AndroidBean.ResultsBean> list = androidBean.getResults();
             return list;
         } else return null;
-
     }
 }

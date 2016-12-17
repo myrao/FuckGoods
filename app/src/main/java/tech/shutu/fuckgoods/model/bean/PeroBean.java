@@ -11,7 +11,7 @@ import java.util.List;
  * Created by raomengyang on 17/12/2016.
  */
 
-public class PeroBean implements Serializable {
+public class PeroBean extends ItemBean implements Serializable {
 
 
     /**
@@ -23,6 +23,28 @@ public class PeroBean implements Serializable {
     private int code;
     private String message;
     private List<ResultBean> result;
+
+//    public static List<AndroidBean.ResultsBean> parseJsonFromString(String jsonStr) {
+//        if (!TextUtils.isEmpty(jsonStr)) {
+//            PeroBean peroBean = JSON.parseObject(jsonStr, PeroBean.class);
+//
+//            List<Pero> list = peroBean.
+//            return list;
+//        } else return null;
+//
+//    }
+
+    public static List<PeroBean.ResultBean> parseJsonFromString(String jsonStr) {
+        if (!TextUtils.isEmpty(jsonStr)) {
+            PeroBean peroBean = JSON.parseObject(jsonStr, PeroBean.class);
+            List<PeroBean.ResultBean> resultBeen = peroBean.getResult();
+            List<PeroBean.ResultBean.PicturesBean> list;
+//            for (int index = 0; index < resultBeen.size(); index++) {
+//                list = resultBeen;
+//            }
+            return resultBeen;
+        } else return null;
+    }
 
     public int getCode() {
         return code;
@@ -48,7 +70,7 @@ public class PeroBean implements Serializable {
         this.result = result;
     }
 
-    public static class ResultBean {
+    public static class ResultBean extends ItemBean implements Serializable {
         /**
          * _id : 5850fb176996560037534d03
          * user : {"_id":"56d82a12681b421e00d2bf95","nickname":"Pero酱","avatarURL":"http://7xq7s7.com2.z0.glb.qiniucdn.com/4f7ebab38fc9014b8388363843c84934?imageMogr2/thumbnail/300x300/interlace/1&e=1482064400&token=3cYRoEh67hh3wAsX6ex9FXqk1fT8heJvl43iffYt:VvIYzEykqAjGOgJc8loLvMaEY74=","authed":true}
@@ -313,7 +335,7 @@ public class PeroBean implements Serializable {
             this.pictures = pictures;
         }
 
-        public static class UserBean {
+        public static class UserBean extends ItemBean implements Serializable {
             /**
              * _id : 56d82a12681b421e00d2bf95
              * nickname : Pero酱
@@ -359,7 +381,7 @@ public class PeroBean implements Serializable {
             }
         }
 
-        public static class PicturesBean {
+        public static class PicturesBean extends ItemBean implements Serializable {
             /**
              * _id : 5850fb176996560037534d04
              * userId : 56d82a12681b421e00d2bf95
@@ -454,16 +476,5 @@ public class PeroBean implements Serializable {
                 this.postId = postId;
             }
         }
-    }
-
-
-    public static List<AndroidBean.ResultsBean> parseJsonFromString(String jsonStr) {
-        if (!TextUtils.isEmpty(jsonStr)) {
-            PeroBean peroBean = JSON.parseObject(jsonStr, PeroBean.class);
-
-            List<Pero> list = peroBean.
-            return list;
-        } else return null;
-
     }
 }
