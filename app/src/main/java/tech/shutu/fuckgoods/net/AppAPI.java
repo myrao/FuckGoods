@@ -20,6 +20,8 @@ public class AppAPI {
     public static final String API_IOS_URL = IP_PREFIX + SUFFIX_IOS;
     public static final String API_WELWARE_URL = IP_PREFIX + SUFFIX_WELFARE;
 
+    public static final String API_PERO_GIRL_HOME_PAGE_URL = "https://api.pero.moe/v2/posts?type=homepage";
+
     public static String getApiAndroidUrl() {
         return API_ANDROID_URL;
     }
@@ -30,5 +32,9 @@ public class AppAPI {
 
     public static String getApiWelwareUrl() {
         return API_WELWARE_URL;
+    }
+
+    public static String getApiPeroGirlHomePageUrl(int page) {
+        return API_PERO_GIRL_HOME_PAGE_URL + "&page=" + page;
     }
 }

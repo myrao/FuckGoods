@@ -1,4 +1,4 @@
-package tech.shutu.fuckgoods.bean;
+package tech.shutu.fuckgoods.model.bean;
 
 import android.text.TextUtils;
 

@@ -1,8 +1,5 @@
 package tech.shutu.fuckgoods.model;
 
-import java.util.List;
-
-import tech.shutu.fuckgoods.bean.AndroidBean;
 import tech.shutu.fuckgoods.listener.OnAndroidRequestListener;
 import tech.shutu.fuckgoods.listener.OnRequestCallbackListener;
 

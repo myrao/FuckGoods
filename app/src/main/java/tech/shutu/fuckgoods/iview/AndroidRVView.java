@@ -2,7 +2,7 @@ package tech.shutu.fuckgoods.iview;
 
 import java.util.List;
 
-import tech.shutu.fuckgoods.bean.AndroidBean;
+import tech.shutu.fuckgoods.model.bean.AndroidBean;
 import tech.shutu.fuckgoods.view.IView;
 
 /**

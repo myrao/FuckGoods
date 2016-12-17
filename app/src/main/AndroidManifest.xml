@@ -27,6 +27,8 @@
         <activity
             android:name=".view.activity.WebViewActivity"
             android:theme="@style/AppTheme" />
+
+        <activity android:name=".view.activity.PicPreviewActivity" />
     </application>
 
 </manifest>

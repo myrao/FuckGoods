@@ -16,7 +16,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import tech.shutu.fuckgoods.R;
-import tech.shutu.fuckgoods.bean.AndroidBean;
+import tech.shutu.fuckgoods.model.bean.AndroidBean;
 import tech.shutu.fuckgoods.view.activity.WebViewActivity;
 
 /**

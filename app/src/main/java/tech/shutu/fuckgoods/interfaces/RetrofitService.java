@@ -5,7 +5,7 @@ import java.util.List;
 //import retrofit2.Call;
 //import retrofit2.http.GET;
 //import retrofit2.http.Path;
-//import tech.shutu.fuckgoods.bean.AndroidBean;
+//import tech.shutu.fuckgoods.model.bean.AndroidBean;
 
 /**
  * Created by raomengyang on 9/4/16.

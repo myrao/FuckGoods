@@ -2,7 +2,7 @@ package tech.shutu.fuckgoods.presenter;
 
 import java.util.List;
 
-import tech.shutu.fuckgoods.bean.AndroidBean;
+import tech.shutu.fuckgoods.model.bean.AndroidBean;
 import tech.shutu.fuckgoods.iview.AndroidRVView;
 import tech.shutu.fuckgoods.listener.OnAndroidRequestListener;
 import tech.shutu.fuckgoods.model.IAndroidModel;

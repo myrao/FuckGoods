@@ -2,10 +2,11 @@ package tech.shutu.fuckgoods.model;
 
 import java.util.List;
 
-import tech.shutu.fuckgoods.bean.AndroidBean;
+import tech.shutu.fuckgoods.model.bean.AndroidBean;
 import tech.shutu.fuckgoods.interfaces.RequestCallbackalbe;
 import tech.shutu.fuckgoods.listener.OnAndroidRequestListener;
 import tech.shutu.fuckgoods.listener.OnRequestCallbackListener;
+import tech.shutu.fuckgoods.model.bean.PeroBean;
 import tech.shutu.fuckgoods.net.AppAPI;
 import tech.shutu.fuckgoods.net.HttpUtils;
 import tech.shutu.fuckgoods.utils.LogUtils;
@@ -23,7 +24,8 @@ public class WelfareModelImpl implements IAndroidModel {
 
     @Override
     public void requestPage(int pageCount, final OnAndroidRequestListener requestListener) {
-        String url = AppAPI.API_WELWARE_URL + "/30/" + pageCount;
+//        String url = AppAPI.API_WELWARE_URL + "/30/" + pageCount;
+        String url = AppAPI.getApiPeroGirlHomePageUrl(pageCount);
         LogUtils.o(" url=> " + url);
         HttpUtils.doVolleyGetNoQA(url,
                 new RequestCallbackalbe<String>() {
@@ -31,7 +33,8 @@ public class WelfareModelImpl implements IAndroidModel {
                     public void requestSuccess(String successCallback) {
                         LogUtils.o(successCallback);
 
-                        List<AndroidBean.ResultsBean> beanList = AndroidBean.parseJsonFromString(successCallback);
+//                        List<AndroidBean.ResultsBean> beanList = AndroidBean.parseJsonFromString(successCallback);
+                        List<PeroBean.ResultBean.PicturesBean> beanList = PeroBean.pa
                         if (beanList != null) {
                             requestListener.onPageRefreshSuccess(beanList);
                         } else {

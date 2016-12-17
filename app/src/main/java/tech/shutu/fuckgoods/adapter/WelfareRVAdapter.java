@@ -17,8 +17,8 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import tech.shutu.fuckgoods.R;
-import tech.shutu.fuckgoods.bean.AndroidBean;
-import tech.shutu.fuckgoods.view.activity.WebViewActivity;
+import tech.shutu.fuckgoods.model.bean.AndroidBean;
+import tech.shutu.fuckgoods.view.activity.PicPreviewActivity;
 
 /**
  * Created by raomengyang on 8/15/16.
@@ -75,8 +75,8 @@ public class WelfareRVAdapter extends RecyclerView.Adapter<WelfareRVAdapter.View
         holder.cvAndroid.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(mContext, WebViewActivity.class);
-                intent.putExtra("request_url", bean.getUrl());
+                Intent intent = new Intent(mContext, PicPreviewActivity.class);
+                intent.putExtra("pic_url", bean.getUrl());
                 mContext.startActivity(intent);
             }
         });

@@ -19,7 +19,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import tech.shutu.fuckgoods.R;
 import tech.shutu.fuckgoods.adapter.AndroidRVAdapter;
-import tech.shutu.fuckgoods.bean.AndroidBean;
+import tech.shutu.fuckgoods.model.bean.AndroidBean;
 import tech.shutu.fuckgoods.iview.AndroidRVView;
 import tech.shutu.fuckgoods.presenter.AndroidRVPresenter;
 import tech.shutu.fuckgoods.utils.LogUtils;
